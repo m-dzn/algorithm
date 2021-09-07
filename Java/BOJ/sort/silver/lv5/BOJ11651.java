@@ -1,9 +1,10 @@
-package temp.silver.lv5;
+package sort.silver.lv5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 
 // 좌표 정렬하기 2
@@ -27,11 +28,14 @@ public class BOJ11651 {
     private static String solution(Point[] points) {
         StringBuilder sb = new StringBuilder();
 
-        Arrays.sort(points, (p1, p2) -> {
-            if (p1.getY() == p2.getY()) {
-                return p1.getX() - p2.getX();
+        Arrays.sort(points, new Comparator<Point>() {
+            @Override
+            public int compare(Point p1, Point p2) {
+                if (p1.getY() == p2.getY()) {
+                    return p1.getX() - p2.getX();
+                }
+                return p1.getY() - p2.getY();
             }
-           return p1.getY() - p2.getY();
         });
 
         for (Point point : points) {
