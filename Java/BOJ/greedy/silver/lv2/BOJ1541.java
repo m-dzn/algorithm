@@ -1,9 +1,10 @@
-package temp.silver.lv2;
+package greedy.silver.lv2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+// 잃어버린 괄호
 public class BOJ1541 {
 
     public static void main(String[] args) throws IOException {
