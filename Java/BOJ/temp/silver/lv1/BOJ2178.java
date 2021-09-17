@@ -3,6 +3,8 @@ package temp.silver.lv1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 // 미로 탐색
@@ -27,11 +29,18 @@ public class BOJ2178 {
     }
 
     private static int solution(boolean[][] maze) {
-        int minMove = 0;
-
-
+        int minMove = bfs(maze);
 
         return minMove;
+    }
+
+    private static int bfs(boolean[][] maze) {
+        int count = 0;
+
+        Queue<Integer> que = new LinkedList<>();
+        
+
+        return count;
     }
 
     private static boolean[][] getMaze(int N, int M) throws IOException {
