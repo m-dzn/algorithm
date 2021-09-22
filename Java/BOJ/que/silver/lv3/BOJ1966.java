@@ -1,4 +1,4 @@
-package temp.silver.lv3;
+package que.silver.lv3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+// 프린터 큐
 public class BOJ1966 {
 
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

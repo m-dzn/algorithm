@@ -1,9 +1,10 @@
-package temp.silver.lv4;
+package stack.silver.lv4;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+// 괄호
 public class BOJ9012 {
 
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

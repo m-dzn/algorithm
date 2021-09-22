@@ -1,8 +1,9 @@
-package temp.gold.lv5;
+package stack.gold.lv5;
 
 import java.io.*;
 import java.util.*;
 
+// 괄호 제거
 public class BOJ2800 {
 
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

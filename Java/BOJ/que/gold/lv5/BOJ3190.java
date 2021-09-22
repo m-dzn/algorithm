@@ -1,4 +1,4 @@
-package temp.gold.lv5;
+package que.gold.lv5;
 
 import java.io.BufferedReader;
 import java.io.IOException;

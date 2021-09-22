@@ -1,4 +1,4 @@
-package temp.silver.lv4;
+package que.silver.lv4;
 
 import java.io.BufferedReader;
 import java.io.IOException;
