@@ -1,4 +1,4 @@
-package temp.silver.lv5;
+package sort.silver.lv5;
 
 import java.io.BufferedReader;
 import java.io.IOException;
