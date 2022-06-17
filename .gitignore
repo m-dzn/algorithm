@@ -1,1 +1,7 @@
-Java/BOJ/Main.java
+.idea
+.vscode
+out
+.node_modules
+
+# Java/Kotlin
+*.jar
