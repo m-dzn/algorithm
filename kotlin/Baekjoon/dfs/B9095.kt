@@ -1,4 +1,4 @@
-package Baekjoon.dp
+package Baekjoon.dfs
 
 // 실버 III > 1, 2, 3 더하기
 fun main() = with(System.`in`.bufferedReader()) {
