@@ -6,7 +6,7 @@ fun main() {
   val reader = BufferedReader(InputStreamReader(System.`in`))
 
   val buddhistYear = reader.readLine().toInt()
-  val BUDDHA_YEAR_DIFF = 543;
+  val BUDDHA_YEAR_DIFF = 543
 
   println(buddhistYear - BUDDHA_YEAR_DIFF)
 

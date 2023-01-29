@@ -7,7 +7,7 @@ fun main() {
 
   val N = reader.readLine().toInt()
 
-  var tokens = StringTokenizer(reader.readLine())
+  val tokens = StringTokenizer(reader.readLine())
 
   var min = Integer.MAX_VALUE
   var max = Integer.MIN_VALUE
