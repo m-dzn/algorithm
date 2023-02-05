@@ -1,13 +1,9 @@
-import java.io.*
-
 // 백준 2753번 윤년
-fun main() {
-  val reader = BufferedReader(InputStreamReader(System.`in`))
-
-  val year = reader.readLine().toInt()
+fun main() = with(System.`in`.bufferedReader()) {
+  val year = readln().toInt()
   println(isLeapYear(year))
 
-  reader.close()
+  close()
 }
 
 fun isLeapYear(year: Int): Int {

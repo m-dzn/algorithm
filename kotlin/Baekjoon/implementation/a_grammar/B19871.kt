@@ -1,17 +1,15 @@
-import java.io.*
 import java.util.*
 
 // 백준 10871번 X보다 작은 수
-fun main() {
-  val reader = BufferedReader(InputStreamReader(System.`in`))
-  var tokens = StringTokenizer(reader.readLine())
+fun main() = with(System.`in`.bufferedReader()) {
+  var tokens = StringTokenizer(readln())
 
   val N = getNextNumberFrom(tokens)
   val X = getNextNumberFrom(tokens)
 
-  tokens = StringTokenizer(reader.readLine())
+  tokens = StringTokenizer(readln())
   println(getNumbersMoreThan(X, N, tokens))
-  reader.close()
+  close()
 }
 
 fun getNextNumberFrom(tokens: StringTokenizer): Int {

@@ -1,13 +1,9 @@
-import java.io.*
-
 // 백준 2741번 N 찍기
-fun main() {
-  val reader = BufferedReader(InputStreamReader(System.`in`))
-
-  val N = reader.readLine().toInt()
+fun main() = with(System.`in`.bufferedReader()) {
+  val N = readln().toInt()
 
   println(getNumbers(N))
-  reader.close()
+  close()
 }
 
 fun getNumbers(n: Int): String {

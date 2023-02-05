@@ -1,14 +1,10 @@
-import java.io.*
-
 // 백준 2739번 구구단
-fun main() {
-  val reader = BufferedReader(InputStreamReader(System.`in`))
-
-  val N = reader.readLine().toInt()
+fun main() = with(System.`in`.bufferedReader()) {
+  val N = readln().toInt()
 
   printTimesTableOf(N)
 
-  reader.close()
+  close()
 }
 
 fun printTimesTableOf(n: Int) {

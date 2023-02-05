@@ -1,18 +1,15 @@
-import java.io.*
-
 // 백준 8958번 OX퀴즈
-fun main() {
-  val reader = BufferedReader(InputStreamReader(System.`in`))
+fun main() = with(System.`in`.bufferedReader()) {
   val sb = StringBuilder()
 
-  val T = reader.readLine().toInt()
+  val T = readln().toInt()
 
   repeat(T) {
-    sb.appendLine(getScore(reader.readLine()))
+    sb.appendLine(getScore(readln()))
   }
 
   println(sb)
-  reader.close()
+  close()
 }
 
 fun getScore(line: String): Int {

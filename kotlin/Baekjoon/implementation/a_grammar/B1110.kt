@@ -1,14 +1,9 @@
-import java.io.*
-import java.util.*
-
 // 백준 1110번 더하기 사이클
-fun main() {
-  val reader = BufferedReader(InputStreamReader(System.`in`))
-
-  val N = reader.readLine().toInt()
+fun main() = with(System.`in`.bufferedReader()) {
+  val N = readln().toInt()
 
   println(getAddCycle(N))
-  reader.close()
+  close()
 }
 
 fun getAddCycle(n: Int): Int {
@@ -24,5 +19,5 @@ fun getAddCycle(n: Int): Int {
     count++
   }
 
-  return count;
+  return count
 }

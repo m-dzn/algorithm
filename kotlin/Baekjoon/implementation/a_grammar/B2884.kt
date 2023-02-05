@@ -1,17 +1,15 @@
-import java.io.*
-import java.util.StringTokenizer
+import java.util.*
 
 // 백준 2884번 알람 시계
-fun main() {
-  val reader = BufferedReader(InputStreamReader(System.`in`))
-  val tokens = StringTokenizer(reader.readLine())
+fun main() = with(System.`in`.bufferedReader()) {
+  val tokens = StringTokenizer(readln())
 
   val H = tokens.nextToken().toInt()
   val M = tokens.nextToken().toInt()
 
   println(get45MinutesAgo(H, M))
 
-  reader.close()
+  close()
 }
 
 fun get45MinutesAgo(H: Int, M: Int): String {

@@ -1,19 +1,15 @@
-import java.io.*
-import java.util.StringTokenizer
+import java.util.*
 
 // 백준 2525번 오븐 시계
 fun main() {
-  val reader = BufferedReader(InputStreamReader(System.`in`))
-  val tokens = StringTokenizer(reader.readLine())
+  val tokens = StringTokenizer(readln())
 
   val H = tokens.nextToken().toInt()
   val M = tokens.nextToken().toInt()
 
-  val cookTime = reader.readLine().toInt()
+  val cookTime = readln().toInt()
 
   println(getTimeAfterMinutes(H, M, cookTime))
-
-  reader.close()
 }
 
 fun getTimeAfterMinutes(H: Int, M: Int, elapsedTime: Int): String {

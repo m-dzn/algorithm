@@ -1,15 +1,11 @@
-import java.io.*
-
 // 백준 9498번 시험 성적
-fun main() {
-  val reader = BufferedReader(InputStreamReader(System.`in`))
-
-  val score = reader.readLine().toInt()
-  var credit = getCreditOfScore(score)
+fun main() = with(System.`in`.bufferedReader()) {
+  val score = readln().toInt()
+  val credit = getCreditOfScore(score)
 
   println(credit)
 
-  reader.close()
+  close()
 }
 
 fun getCreditOfScore(score: Int): Char {
