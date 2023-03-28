@@ -1,4 +1,4 @@
-package Baekjoon
+package Baekjoon.bruteforce.d_normal_logic
 
 import kotlin.math.abs
 
