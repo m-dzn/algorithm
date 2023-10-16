@@ -1,7 +1,7 @@
 using System;
 
 // 브론즈 V > Hello World
-namespace HelloWorld
+namespace Baekjoon
 {
     class Program
     {
