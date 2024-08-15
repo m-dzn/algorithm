@@ -1,6 +1,0 @@
-/Users/kyeonghoyang/Documents/GitHub Apps/Personal Apps/algorithm/c#/console/bin/Debug/console.exe
-/Users/kyeonghoyang/Documents/GitHub Apps/Personal Apps/algorithm/c#/console/bin/Debug/console.pdb
-/Users/kyeonghoyang/Documents/GitHub Apps/Personal Apps/algorithm/c#/console/obj/Debug/console.csproj.AssemblyReference.cache
-/Users/kyeonghoyang/Documents/GitHub Apps/Personal Apps/algorithm/c#/console/obj/Debug/console.csproj.CoreCompileInputs.cache
-/Users/kyeonghoyang/Documents/GitHub Apps/Personal Apps/algorithm/c#/console/obj/Debug/console.exe
-/Users/kyeonghoyang/Documents/GitHub Apps/Personal Apps/algorithm/c#/console/obj/Debug/console.pdb
