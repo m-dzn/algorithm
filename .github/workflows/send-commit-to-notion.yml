@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 name: Send Commit Message to Notion
 
 on:
@@ -23,7 +24,7 @@ jobs:
         id: get_source_code_file
         run: |
           # 변경된 파일 목록 가져오기
-          CHANGED_FILES=$(git diff --name-only HEAD^ | iconv -f UTF-8 -t UTF-8)
+          CHANGED_FILES=$(git diff --name-only HEAD^)
 
           # 찾는 확장자의 파일 정보를 가져옵니다
           CODE_FILES=$(echo "$CHANGED_FILES" | grep -vE '\.md$' || true)
