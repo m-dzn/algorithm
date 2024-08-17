@@ -55,7 +55,7 @@ jobs:
             -H "Authorization: Bearer $NOTION_API_KEY" \
             -H "Content-Type: application/json" \
             -H "Notion-Version: 2022-06-28" \
-            -d '{
+            --data-binary '{
                   "parent": { "database_id": "'$NOTION_DATABASE_ID'" },
                   "properties": {
                     "'"$TITLE_PROPERTY_NAME"'": {
