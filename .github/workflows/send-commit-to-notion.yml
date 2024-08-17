@@ -17,22 +17,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get Commit Message
-        id: get_commit_message
-        run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
-          echo "COMMIT_MESSAGE=${COMMIT_MESSAGE}" >> $GITHUB_ENV
-
       - name: Get Source Code File
         id: get_source_code_file
         run: |
+          # 변경된 파일 목록 가져오기
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+
           # 찾는 확장자의 파일 정보를 가져옵니다
-          CODE_FILES=$(find . -type f ! -name "*.md")
+          CODE_FILES=$(echo "$CHANGED_FILES" | grep -vE '\.md$' || true)
 
           # 찾은 파일 중 첫번째 파일의 정보를 가져옵니다
           FIRST_FILE=$(echo "$CODE_FILES" | head -n 1)
           FILE_NAME=$(basename "$FIRST_FILE")
-          FILE_PATH=$(realpath --relative-to=. "$FIRST_FILE")
+          FILE_PATH=$FIRST_FILE
 
           # 링크 정보를 가져옵니다
           REPO_URL="https://github.com/${{ github.repository }}"
