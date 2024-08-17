@@ -24,11 +24,9 @@ jobs:
         run: |
           # 변경된 파일 목록 가져오기
           CHANGED_FILES=$(git diff --name-only HEAD^)
-          echo $CHANGED_FILES
 
           # 찾는 확장자의 파일 정보를 가져옵니다
           CODE_FILES=$(echo "$CHANGED_FILES" | grep -vE '\.md$' || true)
-          echo $CODE_FILES
 
           # 찾은 파일 중 첫번째 파일의 정보를 가져옵니다
           FIRST_FILE=$(echo "$CODE_FILES" | head -n 1)
@@ -45,6 +43,8 @@ jobs:
           # 변수를 담습니다.
           echo "TITLE=${FILE_NAME_WITHOUT_EXTENSION}" >> $GITHUB_ENV
           echo "FILE_URL=${FILE_URL}" >> $GITHUB_ENV
+          echo $TITLE
+          echo $FILE_URL
 
       - name: Send Commit Message to Notion
         env:
