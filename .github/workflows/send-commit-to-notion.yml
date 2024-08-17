@@ -12,7 +12,7 @@ env:
   USER_PROPERTY_NAME: "푼 사람"
 
 jobs:
-  send-message:
+  post-certification:
     runs-on: ubuntu-latest
 
     steps:
@@ -69,6 +69,11 @@ jobs:
             -H "Notion-Version: 2022-06-28" \
             --data-binary '{
                   "parent": { "database_id": "'$NOTION_DATABASE_ID'" },
+                  "icon": {
+                    "external": {
+                      "url": "https://www.notion.so/icons/code_blue.svg?mode=light"
+                    }
+                  },
                   "properties": {
                     "'"$TITLE_PROPERTY_NAME"'": {
                       "title": [
