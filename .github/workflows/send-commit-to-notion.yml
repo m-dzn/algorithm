@@ -1,0 +1,73 @@
+name: Send Commit Message to Notion
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  TITLE_PROPERTY_NAME: "제목"
+  URL_PROPERTY_NAME: "문제 풀이 링크"
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Commit Message
+        id: get_commit_message
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+          echo "COMMIT_MESSAGE=${COMMIT_MESSAGE}" >> $GITHUB_ENV
+
+      - name: Get Source Code File
+        id: get_source_code_file
+        run: |
+          # 커밋에서 변경된 파일 목록을 가져옵니다
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+
+          # 찾는 확장자의 파일 정보를 가져옵니다
+          CODE_FILES=$(echo $CHANGED_FILES" | grep -vE '\.md$' || true)
+
+          # 찾은 파일 중 첫번째 파일의 정보를 가져옵니다
+          FIRST_FILE=$(echo "CODE_FILES" | head -n 1)
+          FILE_NAME=$(basename "$FIRST_FILE")
+          FILE_PATH=$(realpath --relative-to=. "$FRIST_FILE")
+
+          # 링크 정보를 가져옵니다
+          REPO_URL="https://github.com/${{ github.repository }}"
+          FILE_URL="${repo_url}/blob/${{ github.ref }}/$file_path"
+
+          # 변수를 담습니다.
+          echo "FILE_NAME=${FILE_NAME}" >> $GITHUB_ENV
+          echo "FILE_URL=${FILE_URL}" >> $GITHUB_ENV
+
+      - name: Send Commit Message to Notion
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          curl -X POST https://api.notion.com/v1/pages \
+            -H "Authorization: Bearer $NOTION_API_KEY" \
+            -H "Content-Type: application/json" \
+            -H "Notion-Version: 2022-06-28" \
+            -d '{
+                  "parent": { "database_id": "'$NOTION_DATABASE_ID'" },
+                  "properties": {
+                    "'"$TITLE_PROPERTY_NAME"'": {
+                      "title": [
+                        {
+                          "text": {
+                            "content": "'"$FILE_NAME"'"
+                          }
+                        }
+                      ]
+                    },
+                    "'"$URL_PROPERTY_NAME"'": {
+                      "url": "'"$FILE_URL"'"
+                    }
+                  }
+                }'
