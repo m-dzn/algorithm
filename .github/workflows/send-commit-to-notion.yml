@@ -30,7 +30,7 @@ jobs:
 
       - name: Get Source Code File
         id: get_source_code_file
-        if: contains(github.event.head_commit.message, '[ms, Memory:]')
+        if: contains(github.event.head_commit.message, 'ms, Memory:')
         run: |
           # 변경된 파일 목록 가져오기
           CHANGED_FILES=$(git diff --name-only HEAD^)
@@ -56,7 +56,7 @@ jobs:
           echo "FILE_URL=${FILE_URL}" >> $GITHUB_ENV
 
       - name: Send Commit Message to Notion
-        if: contains(github.event.head_commit.message, '[ms, Memory:]')
+        if: contains(github.event.head_commit.message, 'ms, Memory:')
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
