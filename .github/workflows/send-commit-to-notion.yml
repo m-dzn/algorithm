@@ -21,7 +21,7 @@ jobs:
         id: get_source_code_file
         run: |
           # 변경된 파일 목록 가져오기
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          CHANGED_FILES=$(git diff --name-only)
 
           # 찾는 확장자의 파일 정보를 가져옵니다
           CODE_FILES=$(echo "$CHANGED_FILES" | grep -vE '\.md$' || true)
