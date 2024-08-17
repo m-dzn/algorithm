@@ -35,6 +35,7 @@ jobs:
           echo $FIRST_FILE
 
           FILE_NAME=$(basename "$FIRST_FILE")
+          FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME%.*}"
           FILE_PATH=$FIRST_FILE
 
           # 링크 정보를 가져옵니다
@@ -42,7 +43,7 @@ jobs:
           FILE_URL="${REPO_URL}/blob/${{ github.ref }}/$FILE_PATH"
 
           # 변수를 담습니다.
-          echo "FILE_NAME=${FILE_NAME}" >> $GITHUB_ENV
+          echo "TITLE=${FILE_NAME_WITHOUT_EXTENSION}" >> $GITHUB_ENV
           echo "FILE_URL=${FILE_URL}" >> $GITHUB_ENV
 
       - name: Send Commit Message to Notion
@@ -61,7 +62,7 @@ jobs:
                       "title": [
                         {
                           "text": {
-                            "content": "'"$FILE_NAME"'"
+                            "content": "'"$TITLE"'"
                           }
                         }
                       ]
