@@ -19,11 +19,6 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Set locale to UTF-8
-        run: |
-          sudo locale-gen en_US.UTF-8
-          sudo update-locale LANG=en_US.UTF-8
-
       - name: Get Source Code File
         id: get_source_code_file
         run: |
@@ -40,7 +35,7 @@ jobs:
           echo $FIRST_FILE
 
           FILE_NAME=$(basename "$FIRST_FILE")
-          FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME%.*}"
+          FILE_NAME_WITHOUT_EXTENSION="${FILE_NAME%%.*}"
           FILE_PATH=$FIRST_FILE
 
           # 링크 정보를 가져옵니다
