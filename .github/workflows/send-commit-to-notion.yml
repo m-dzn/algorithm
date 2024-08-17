@@ -9,6 +9,7 @@ on:
 env:
   TITLE_PROPERTY_NAME: "제목"
   URL_PROPERTY_NAME: "문제 풀이 링크"
+  USER_PROPERTY_NAME: "푼 사람"
 
 jobs:
   send-message:
@@ -60,6 +61,7 @@ jobs:
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          NOTION_USER_ID: ${{ secrets.NOTION_USER_ID }}
         run: |
           curl -X POST https://api.notion.com/v1/pages \
             -H "Authorization: Bearer $NOTION_API_KEY" \
@@ -79,6 +81,11 @@ jobs:
                     },
                     "'"$URL_PROPERTY_NAME"'": {
                       "url": "'"$FILE_URL"'"
+                    },
+                    "'"$USER_PROPERTY_NAME"'": {
+                      "people": [{
+                        "id": "'"$NOTION_USER_ID"'"
+                      }]
                     }
                   }
                 }'
