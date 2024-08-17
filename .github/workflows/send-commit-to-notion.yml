@@ -32,7 +32,7 @@ jobs:
           # 찾은 파일 중 첫번째 파일의 정보를 가져옵니다
           FIRST_FILE=$(echo "CODE_FILES" | head -n 1)
           FILE_NAME=$(basename "$FIRST_FILE")
-          FILE_PATH=$(realpath --relative-to=. "$FRIST_FILE")
+          FILE_PATH=$(realpath --relative-to=. "$FIRST_FILE")
 
           # 링크 정보를 가져옵니다
           REPO_URL="https://github.com/${{ github.repository }}"
