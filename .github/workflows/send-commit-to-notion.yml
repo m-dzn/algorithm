@@ -43,7 +43,7 @@ jobs:
 
           FILE_NAME=$(basename "$FIRST_FILE")
           FILE_NAME_WITHOUT_EXTENSION=${FILE_NAME%.*}
-          FILE_PATH=$FIRST_FILE
+          FILE_PATH=$(echo -n "$FIRST_FILE" | jq -sRr @uri)
 
           # 링크 정보를 가져옵니다
           REPO_URL="https://github.com/${{ github.repository }}"
