@@ -23,7 +23,7 @@ jobs:
         id: get_source_code_file
         run: |
           # 변경된 파일 목록 가져오기
-          CHANGED_FILES=$(git diff --name-only)
+          CHANGED_FILES=$(git diff --name-only HEAD^)
           echo $CHANGED_FILES
 
           # 찾는 확장자의 파일 정보를 가져옵니다
