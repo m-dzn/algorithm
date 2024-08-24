@@ -12,7 +12,4 @@ for coin in reversed(coins):
     num_of_coins += remainder // coin
     remainder %= coin
 
-    if remainder == 0:
-        break
-
 print(num_of_coins)
