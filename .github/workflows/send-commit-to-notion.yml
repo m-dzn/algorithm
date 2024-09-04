@@ -10,6 +10,7 @@ env:
   TITLE_PROPERTY_NAME: "제목"
   URL_PROPERTY_NAME: "문제 풀이 링크"
   USER_PROPERTY_NAME: "푼 사람"
+  DATE_TIME_PROPERTY_NAME: "푼 날짜"
 
 jobs:
   post-certification:
@@ -55,6 +56,7 @@ jobs:
           # 변수를 담습니다.
           echo "TITLE=${FILE_NAME_WITHOUT_EXTENSION}" >> $GITHUB_ENV
           echo "FILE_URL=${FILE_URL}" >> $GITHUB_ENV
+          echo "DATE_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
 
       - name: Send Commit Message to Notion
         if: contains(github.event.head_commit.message, 'ms, Memory:')
@@ -91,6 +93,11 @@ jobs:
                       "people": [{
                         "id": "'"$NOTION_USER_ID"'"
                       }]
+                    },
+                    "'"$DATE_TIME_PROPERTY_NAME"'": {
+                      "date": {
+                        "start": "'"$DATE_TIME"'"
+                      }
                     }
                   }
                 }'
