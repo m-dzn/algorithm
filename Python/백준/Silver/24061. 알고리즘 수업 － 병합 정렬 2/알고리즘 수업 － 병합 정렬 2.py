@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 change_count = 0
 
 def merge_sort(array, l, r):
