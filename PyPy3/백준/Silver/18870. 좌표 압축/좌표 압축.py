@@ -5,7 +5,7 @@ input = sys.stdin.readline
 n = int(input())
 arr = list(map(int, input().split()))
 
-unique_arr = list(set(arr))
+unique_arr = set(arr)
 sorted_arr = sorted(unique_arr)
 
 dict = { sorted_arr[i]: i for i in range(len(sorted_arr)) }
